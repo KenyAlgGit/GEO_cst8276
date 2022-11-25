@@ -62,12 +62,12 @@ DELIMITER $$
 CREATE DEFINER=`DBcst8276`@`localhost` PROCEDURE `polygon_update`()
 BEGIN
 	update polygon
-	set start_lat = (select latitude from geolocation ge where ge.address = polyline.start_point_address), 
-	start_lng = (select longitude from geolocation ge where ge.address = polyline.start_point_address);
+	set start_lat = (select latitude from geolocation ge where ge.address = polygon.start_point_address), 
+	start_lng = (select longitude from geolocation ge where ge.address = polygon.start_point_address);
     
     update polygon
-	set end_point_lat = (select latitude from geolocation ge where ge.address = polyline.end_point_address), 
-	end_point_lng = (select longitude from geolocation ge where ge.address = polyline.end_point_address);
+	set end_point_lat = (select latitude from geolocation ge where ge.address = polygon.end_point_address), 
+	end_point_lng = (select longitude from geolocation ge where ge.address = polygon.end_point_address);
 END$$
 DELIMITER ;
 
