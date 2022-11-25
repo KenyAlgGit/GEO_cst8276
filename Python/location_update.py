@@ -19,10 +19,13 @@ print(mycursor.rowcount, "record selected.")
 
 
 def update(address_str, address_lat, address_lng):
-    sql = "UPDATE " + table_name + " SET longitude = %s, latitude = %s WHERE address = '" \
+    sql = "UPDATE " + table_name + " SET longitude = %s, latitude = %s json = %s WHERE address = '" \
           + address_str + "'"
     # turple datatype
-    val = (address_lng, address_lat)
+
+    insert_json_string = ("lat:", address_lat, "lng:", address_lng)
+    insert_json = json.dumps(insert_json_string)
+    val = (address_lng, address_lat, insert_json)
     mycursor.execute(sql, val)
     mydb.commit()
     print(mycursor.rowcount, "record updated.")
