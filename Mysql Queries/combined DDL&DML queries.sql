@@ -81,7 +81,7 @@ insert into polyline (
 values(
     'route1',
     'Algonquin College',
-    'Rideau Center'
+    'CF Rideau Centre'
 );
 
 delete from `cst8276`.`polygon`;
@@ -92,5 +92,5 @@ insert into polygon (
 values(
     'polygon1',
     'Algonquin College',
-    'Rideau Center'
+    'CF Rideau Centre'
 );
